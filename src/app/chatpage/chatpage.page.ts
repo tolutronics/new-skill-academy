@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 }) 
 export class ChatpagePage {
   username={} as any;
-  message:any="";
+  message=' ';
   key:any;
   time:any;
   public myData;
@@ -136,6 +136,9 @@ getData(){
 
  
   sendMessage(){
+    if (this.message===' ') {
+      
+    }else{
     var today = new Date();
     this.day=  today.getDay();
     this.hours = today.getHours();
@@ -167,6 +170,7 @@ getData(){
      }, err => {
        
      })
+    }
    
     // }else{
     //   //#

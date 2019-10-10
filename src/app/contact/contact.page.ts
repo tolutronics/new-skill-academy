@@ -4,6 +4,9 @@ import { NavController, AlertController, LoadingController, Platform } from '@io
 import { ViewController } from '@ionic/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-contact',
@@ -21,9 +24,15 @@ amount;
 title;
 class;
 type;
-constructor(public router:Router, public navCtrl: NavController,public activatedRoute : ActivatedRoute) {
+constructor( private afs: AngularFirestore,public router:Router, public navCtrl: NavController,public activatedRoute : ActivatedRoute) {
 
 
+    this.afs.doc(`/userProfile/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
+    
+      this.email =res['Email'];
+  }
+    );
+  
   this.activatedRoute.queryParams.subscribe((res)=>{
 
     this.title = res['title'];
@@ -31,7 +40,6 @@ constructor(public router:Router, public navCtrl: NavController,public activated
     this.class =res['class'];
     this.type=res['type'];
   });
- this.email="Toluxy100@gmail.com";
 }
 
 //Callback function on successful payment 

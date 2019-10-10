@@ -12,10 +12,9 @@
           <img class="image" src="assets/imgs/pic.jpg" alt="">
           <div class="username">{{message.username}} </div>
           <div class="message" *ngIf="message.message">{{message.message}}</div>
-          <div class="message" *ngIf="message.photourl">
+          <div class="message-photo" *ngIf="message.photourl">
               <img src="{{message.photourl}}" />
           </div>
-          
         <div class="time">{{message.time}}</div>
         </div>
          
@@ -38,7 +37,7 @@
         <textarea placeholder="Say something... " [(ngModel)]="message"  class="msd-elastic" ng-model="bar">
         </textarea>
         <ion-fab>
-          <ion-fab-button  class="fab" ><ion-icon name="attach"></ion-icon></ion-fab-button>
+          <ion-fab-button  class="fab" ><ion-icon name="attach" style="color: black"></ion-icon></ion-fab-button>
           <ion-fab-list side="top"  class="fablist">
             <ion-fab-button  (click)="AccessCamera()" class="camera"><ion-icon name="camera"></ion-icon></ion-fab-button>
             <ion-fab-button (click)="AccessGallery()" class="image"><ion-icon name="image"></ion-icon></ion-fab-button>
