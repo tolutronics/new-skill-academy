@@ -8,6 +8,7 @@ import { FirebaseApp } from '@angular/fire';
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { PassageService } from '../passage.service';
 @Component({
   selector: 'app-intermediatechat',
   templateUrl: './intermediatechat.page.html',
@@ -39,12 +40,18 @@ minutes;
   item;
   itemDoc;
   toggled: boolean = false;
+  stat;
+  userid;
 
-  constructor(public activatedRoute : ActivatedRoute, public actionSheetCtrl: ActionSheetController, public storage: AngularFireStorage, public camera: Camera, public navCtrl: NavController, public firebaseNative:FirebaseApp, public db: AngularFireDatabase, private afs: AngularFirestore,public alertCtrl: AlertController) {
+  constructor(public ps:PassageService, public activatedRoute : ActivatedRoute, public actionSheetCtrl: ActionSheetController, public storage: AngularFireStorage, public camera: Camera, public navCtrl: NavController, public firebaseNative:FirebaseApp, public db: AngularFireDatabase, private afs: AngularFirestore,public alertCtrl: AlertController) {
  
    
    
-
+    this.stat=this.ps.getDestn2();
+    if (this.stat=='keeped') {
+      this.userid=this.ps.getDestn1();
+    }else{
+  this.userid = firebase.auth().currentUser.uid;}
   
   this.getData();
   this.getMsg();
@@ -123,7 +130,7 @@ minutes;
 
 
 getData(){
-  this.itemDoc = this.afs.doc(`/userProfile/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
+  this.itemDoc = this.afs.doc(`/userProfile/${this.userid}`).valueChanges().subscribe(res=>{
     this.username =res['Username'];
     
    

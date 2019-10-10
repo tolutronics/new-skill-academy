@@ -8,6 +8,7 @@ import { FirebaseApp } from '@angular/fire';
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 import { Router } from '@angular/router';
+import { PassageService } from '../passage.service';
 
 @Component({
   selector: 'app-tab3',
@@ -33,12 +34,18 @@ export class Tab3Page {
 date;
 hours;
 minutes;
-
+userid;
   item;
   itemDoc;
+  stat;
 
-  constructor(private router:Router,public actionSheetCtrl: ActionSheetController, public storage: AngularFireStorage, public camera: Camera ,public firebaseNative:FirebaseApp, public db: AngularFireDatabase, private afs: AngularFirestore,public alertCtrl: AlertController) {
+  constructor(public ps:PassageService, private router:Router,public actionSheetCtrl: ActionSheetController, public storage: AngularFireStorage, public camera: Camera ,public firebaseNative:FirebaseApp, public db: AngularFireDatabase, private afs: AngularFirestore,public alertCtrl: AlertController) {
 
+    this.stat=this.ps.getDestn2();
+    if (this.stat=='keeped') {
+      this.userid=this.ps.getDestn1();
+    }else{
+  this.userid = firebase.auth().currentUser.uid;}
   this.getData();
   this.getMsg();
 
@@ -147,7 +154,7 @@ minutes;
   }
 
 getData(){
-  this.itemDoc = this.afs.doc(`/userProfile/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
+  this.itemDoc = this.afs.doc(`/userProfile/${this.userid}`).valueChanges().subscribe(res=>{
   this.username =res['Username'];
    
 }

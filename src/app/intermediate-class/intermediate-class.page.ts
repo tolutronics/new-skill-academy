@@ -56,6 +56,10 @@ export class IntermediateClassPage {
     ionViewDidLoad() {
      console.log('ionViewDidLoad BeginnerClassPage');
    }
+   back() {
+    this.router.navigate(['/tabs/tab2']);
+  }
+  
 
    async segmentChanged() {
     await this.slider.slideTo(this.segment);

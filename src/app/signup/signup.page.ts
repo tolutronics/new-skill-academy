@@ -42,7 +42,7 @@ export class SignupPage {
     }
   
     registerUser(){
-      
+     const photourl="https://www.atlassian.com/dam/jcr:13a574c1-390b-4bfb-956b-6b6d114bf98c/max-rehkopf.png";
       this.fire.auth.createUserWithEmailAndPassword(this.email, this.password)
         .then((newUserCredential: firebase.auth.UserCredential) => {
                 firebase.firestore().doc(`/userProfile/${newUserCredential.user.uid}`).set({
@@ -52,6 +52,7 @@ export class SignupPage {
                    Number:this.number, 
                    Email:this.email,
                    Password:this.password,
+                   Photo:photourl
                    
                    
                 });

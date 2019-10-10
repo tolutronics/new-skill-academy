@@ -7,6 +7,7 @@ import 'firebase/firestore';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { PassageService } from '../passage.service';
 
 @Component({
   selector: 'app-tab4',
@@ -27,24 +28,31 @@ export class Tab4Page  {
   data:string;
    info:any;
    dev:any;
+   photourl;
    user:any;
    C_user:any;
    //    mail:any;
 displayCatName:string;
-
+userid;
   name : any;
+  stat;
 
-  constructor(private router:Router, private afs: AngularFirestore,private store:NativeStorage,  public navCtrl: NavController) {
+  constructor(public ps:PassageService, private router:Router, private afs: AngularFirestore,private store:NativeStorage,  public navCtrl: NavController) {
    
 
- 
-    // var ref=firebase.database().ref('/User');
-    // ref.on('value',this.gotData,this.errData);
-    // console.log('to print out');  
-   // this.get();
+    this.stat=this.ps.getDestn2();
+    if (this.stat=='keeped') {
+      this.userid=this.ps.getDestn1();
+    }else{
+  this.userid = firebase.auth().currentUser.uid;}
+  
+    
+
       this.getData1();
       this.getData2();
       console.log(this.key);
+
+
    
   }
 
@@ -73,15 +81,16 @@ newCourse(){
     
 
 getData1(){
-  this.itemDoc = this.afs.doc(`/userProfile/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
+  this.itemDoc = this.afs.doc(`/userProfile/${this.userid}`).valueChanges().subscribe(res=>{
     this.username =res['Username'];
     this.email =res['Email'];
+    this.photourl= res['Photo'];
 }
   )
 }
 
 getData2(){
-  this.itemDoc = this.afs.collection('userProfile').doc(`${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
+  this.itemDoc = this.afs.collection('userProfile').doc(`${this.userid}`).valueChanges().subscribe(res=>{
     this.dat =res['Courses'];
     var t =Object.keys(this.dat).length;
     console.log("my length"+ t)

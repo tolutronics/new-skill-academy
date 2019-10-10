@@ -57,9 +57,10 @@ export class BeginnerClassPage {
   }
  
  
-   toTrailer(){
-    
-   }
+  back() {
+    this.router.navigate(['/tabs/tab2']);
+  }
+  
 
    checkout(i,k,l){
     var q ={

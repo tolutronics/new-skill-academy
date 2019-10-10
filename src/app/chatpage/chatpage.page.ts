@@ -12,12 +12,13 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-chatpage',
   templateUrl: './chatpage.page.html',
   styleUrls: ['./chatpage.page.scss'],
-}) 
+})  
 export class ChatpagePage {
   username={} as any;
   message=' ';
   key:any;
   time:any;
+  photoDisplay;
   public myData;
   day:any;
   photourl:any;
@@ -127,6 +128,7 @@ minutes;
 getData(){
   this.itemDoc = this.afs.doc(`/userProfile/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
     this.username =res['Username'];
+    this.photoDisplay=res['Photo'];
     
    
 }

@@ -42,6 +42,10 @@ export class RecoverPage {
 
   }
   toLogin(){
-    this.router.navigate(['login']);
+    this.router.navigate(['/login']);
   }
+  back() {
+    this.router.navigate(['/login']);
+  }
+  
 }

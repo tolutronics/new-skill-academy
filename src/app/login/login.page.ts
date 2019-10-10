@@ -39,16 +39,19 @@ password: any;
               console.log(e);
               console.log(this.ischecked);
           }
-
+          recover(){
+            this.router.navigate(['/recover']);
+          }
                Login() {
 
                 this.lc.create({
                   message: 'Signing you in',
-                  duration: 4000
+                  duration: 2000
                 }).then((resy) => {
                   resy.present();
                   this.fire.auth.signInWithEmailAndPassword(this.email, this.password)
                 .then(data => {
+                
                   console.log('Got data', this.fire.auth.currentUser);
 
                   if (this.fire.auth.currentUser.emailVerified) {
@@ -56,10 +59,11 @@ password: any;
                   this.afs.collection('userProfile').doc(`${this.fire.auth.currentUser.uid}`).valueChanges().subscribe(res => {
                     resy.onDidDismiss().then((dis) => {
                       if (this.ischecked ) {
+                        console.log('checked o')
                         this.Device = this.device.uuid;
-                        this.store.setItem('myitem', { device: this.Device, email: this.email})
+                        this.store.setItem('myitem', { device: this.Device, userid: firebase.auth().currentUser.uid})
                       .then(
-                        () => console.log('Stored item!', ),
+                        (res) => console.log('Stored item!', ),
                         error => console.error('Error storing item', error)
                       );
                       }
@@ -84,7 +88,7 @@ password: any;
                 .catch(error => {
 
                   resy.onDidDismiss().then((dis) => {
-                  this.Alert('please check your internet connection and try again', 'failed');
+                  this.Alert('Invalid Email or Password', 'failed');
                 });
               });
               });

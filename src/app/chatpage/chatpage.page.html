@@ -9,7 +9,7 @@
   <div id="chatmessages">
       <div class="message"  *ngFor="let message of messages ; let i = index"  >
         <div [class]="message.username == username ? 'inner messageRight':'inner messageLeft'"(press)="presentActionSheet(i)">
-          <img class="image" src="assets/imgs/pic.jpg" alt="">
+          <img class="image" src="{{photoDisplay}}" alt="">
           <div class="username">{{message.username}} </div>
           <div class="message" *ngIf="message.message">{{message.message}}</div>
           <div class="message-photo" *ngIf="message.photourl">

@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar>
-      <div class="back" (click)="back()">
+  <ion-toolbar color='primary'>
+      <div class="back" slot="start" (click)="back()">
           <ion-icon class="icon" name="arrow-back"></ion-icon>
       </div>
     <ion-title>editprofile</ion-title>
@@ -8,9 +8,9 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-avatar style="height: 150px; width: 150px; margin: auto; margin-bottom: 20px;">
+    <ion-avatar style="height: 150px; width: 150px; margin: auto; margin-bottom: 20px;" (click)="changepix()">
 
-        <img src="assets/imgs/pic.jpg" class="profile-pic" >
+        <img src="{{PhotoUrl}}" class="profile-pic" >
     </ion-avatar>
 <!-- <p class="Editname"> -->
 <ion-item class="Edit">

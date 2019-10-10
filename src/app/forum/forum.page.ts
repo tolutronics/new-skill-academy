@@ -20,7 +20,7 @@ export class ForumPage {
   photourl:any;
   photo2:any;
   photos: any;
-  topic:any;
+  topic=' ';
   head:any;
   topics=[] as any;
   reversed=[] as any;
@@ -67,7 +67,12 @@ minutes;
         {
           text: 'Create',
           handler: data => {
-             this.topic=data.TOPIC,
+           
+             this.topic=data.TOPIC;
+             if(this.topic=== null) {
+              
+            }else{
+              console.log(this.topic);
             this.db.list('/chatTopic').push({
              
               topic: this.topic,
@@ -75,6 +80,7 @@ minutes;
             }).then(()=>{
         
             })
+          }
           }
         }
       ]
@@ -270,7 +276,9 @@ getData(){
 
   }
 
-  
+  back() {
+    this.router.navigate(['/tabs/tab3']);
+  }
 
   ionViewDidLoad() {
     

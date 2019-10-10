@@ -79,6 +79,11 @@ export class AdvancedClassPage {
 }
 
 
+back() {
+  this.router.navigate(['/tabs/tab2']);
+}
+
+
   member(){
     this.Alert('You are yet to pay for the Advance Class', 'info');
     this.router.navigate(['/advancechat'])
