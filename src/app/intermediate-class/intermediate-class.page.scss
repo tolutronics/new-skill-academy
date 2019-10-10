@@ -1,0 +1,122 @@
+
+
+ion-title{
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 15px;
+    font-size: 17px;
+}
+
+.lh{
+    color: #800080;
+}
+
+.lp{
+    font-size: 11px;
+}
+
+.overview{
+    padding: 10px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 10px;
+    text-align: justify;
+}
+h4{
+    color:#800080;
+    font-family: Raleway;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 16px;
+text-align: left;
+margin-left: 10px;
+padding: 10px;
+}
+
+h5{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: left;
+    margin-left: 2px;
+    
+}
+
+h6{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bolder;
+    line-height: 21px;
+    color: #800080;
+    margin-top: 5px;
+    margin-left: -4px;
+}
+.item.sc-ion-label-md-h, .item .sc-ion-label-md-h {
+    --color: initial;
+    display: block;
+    color: var(--color);
+    font-family: var(--ion-font-family,inherit);
+    font-size: inherit;
+    text-overflow: ellipsis;
+    white-space: normal; 
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.one{
+    font-size: 12px;
+   text-align: left;
+  
+}
+
+.resume{
+    width: 93px;
+    height: 28px;
+    font-size: 10px;
+    margin-bottom: 5px;
+
+}
+
+
+.get{
+    background-color: #DDA0DD;
+}
+
+ion-icon{
+    color:#800080;
+    font-size: 20px;
+}
+.label{
+    color: #ffffff;
+    text-align: justify;
+    font-size: 14px;
+}
+.swiper-slide {
+    display: block;
+      -ms-flex-negative: 0;
+      /* flex-shrink: 0; */
+      -ms-flex-align: center;
+      /* align-items: center; */
+      -ms-flex-pack: center;
+ 
+  }
+
+
+  .swiper-zoom-container {
+  display: block;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      text-align: center;
+  }

@@ -1,0 +1,48 @@
+
+<ion-content padding>
+  <img src="assets/imgs/logo.png" alt="" class="startImg">
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label position="floating">First Name</ion-label>
+      <ion-input type="fname"   value="" [(ngModel)]="fname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Last Name</ion-label>
+      <ion-input type="lname"  value="" [(ngModel)]="lname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input type="username"  value="" [(ngModel)]="username"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email"  value="" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Phone Number</ion-label>
+      <ion-input type="number"  value="" [(ngModel)]="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" value="" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  
+
+  <div>
+    <ion-button color="primary" expand="full" (click)="registerUser()">Sign up</ion-button>
+  </div>
+  <div>
+    <ion-button color="primary"  expand="full">Sign up with Facebook</ion-button>
+  </div>
+  <p ion-text color= "plum" class="formP" (click)="login()">Have an account already? Login</p>
+
+</ion-content>

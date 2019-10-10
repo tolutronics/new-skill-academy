@@ -1,0 +1,66 @@
+
+
+page-editprofile {
+
+    ion-input{
+      background-color: #ffffff;
+    }
+    .Edit{
+
+      margin-bottom: 5px;
+    }
+
+    p{
+        width: 100%;
+        background-color: #ffffff;
+        padding:3%;
+        letter-spacing: 2px;
+    }
+    .pic{
+      background-color: #3B3442;
+      height: 50%;
+      width: 100%;
+      text-align: center;
+      
+    }
+
+    .icon{
+      font-size: 30px;
+      margin-top: 5px;
+      color: rgb(255, 255, 255);
+  }
+
+    .back{
+      color: #ffffff;
+      height: 30px;
+      float: left;
+      margin-top: 10px;
+      margin-left: 10px;
+      font-size: 20px;
+  }
+
+    .profile-pic{
+      border-radius: 50%;
+      height:100px;
+      width:100px;
+      margin-top:10px;
+      
+       }
+
+         img{
+            height: 30%;
+            width: 100%;
+            text-align: center;
+     
+          }
+          .camera{
+              margin-left: -20px;
+            //   background-color: #838186;
+            //   border-radius: 50%;
+            //   height: 20px;
+            //   width: 20px;
+            //   text-align: center;
+            //   color: #ffffff;
+          }
+
+}

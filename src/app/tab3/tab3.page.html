@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color=primary>
+    <ion-title>
+      FORUM
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding> 
+
+  <div id="topic">
+      <div  (click)="chatPage(topic)" class="container" *ngFor="let topic of reversed; let i = index" ion-activatable >
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-label class="topic" (click)="chatPage(topic)">{{topic.topic}}
+              <div class="creator">Created by: {{topic.username}}</div>
+            </ion-label>
+          
+        </div>
+<!--    
+        <ion-list class="topic-list"  *ngFor="let topic of reversed; let i = index">
+          <ion-item> 
+            <ion-label class="topic" (click)="chatPage(topic)">{{topic.topic}}
+              <div class="creator">Created by: {{topic.username}}</div>
+            </ion-label>
+           
+          </ion-item>
+   
+        </ion-list> -->
+        
+    
+        
+        
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="addTopic()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>  
+  
+  </ion-content>
+  

@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar color=primary>
+    <ion-title>PROFILE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+  <div class="pic">
+
+      <img src="assets/imgs/pic.jpg" alt="" class="profile-pic" col=1 (click)="editpic()">
+
+      <p>	{{username}} </p>
+      <p>{{email}}</p>
+        <!-- <p>{{mail}}</p>
+         -->
+
+      <ion-button block class="edit" (click)="editProfile()">Edit Profile</ion-button>
+     
+    </div>
+    <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" color="primary">
+      <ion-segment-button value="0">
+        <ion-icon class="slide" name="person"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        <ion-icon class="slide" name="camera"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="2">
+        <ion-icon class="slide" name="camera"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
+        <ion-slide class="courses">
+            <div class="course">
+              <div class="h5">Your Courses</div>
+            <ion-list  >
+                  <ion-item *ngFor="let course of key ">
+                    <ion-label >{{dat[course]}}</ion-label>
+                    
+                  </ion-item>
+           
+                </ion-list></div>
+    
+                <div class="course-prog">
+                  <div class="h5">Your Progress</div>
+          
+                <ion-item *ngFor="let course of key ; let i=index">
+                    <ion-avatar slot="start">
+                        <img src="assets/imgs/pic.jpg" alt="" class="course-pic">   
+                                   </ion-avatar>
+                    <ion-label class="text">
+                        <h3 style="margin-bottom: 10px;">{{dat[course]}}</h3>
+                        <p>Beginner Class</p>
+                      </ion-label>
+                      <ion-button block class="resume">Completed</ion-button>
+                  </ion-item>
+              
+          </div>
+          
+          
+          
+          <ion-item class="addCourse" (click)="newCourse()">
+           
+              <ion-icon class="addIcon" name="add-circle" slot="start"></ion-icon>
+              <h4>Add a New Course</h4>
+            
+          </ion-item>
+             
+          </ion-slide>
+      <ion-slide>
+        second
+      </ion-slide>
+      <ion-slide>
+        third
+      </ion-slide>
+    </ion-slides>
+    
+    <!-- <div class="course">
+        <div class="h5">Your Courses</div>
+      <ion-list  >
+            <ion-item *ngFor="let course of key ">
+              <ion-label >{{dat[course]}}</ion-label>
+              
+            </ion-item>
+     
+          </ion-list></div>
+       
+          <div class="course-prog">
+            <div class="h5">Your Progress</div>
+      <ion-row *ngFor="let course of key ; let i=index">
+        <ion-col col-2> <img src="assets/imgs/pic.jpg" alt="" class="course-pic"></ion-col>
+        <ion-col col-5>	
+          <h6 style="margin-bottom:-10px;">{{dat[course]}}</h6>
+          <h6 style="font-size:10px;">Beginner Class</h6>
+        </ion-col>
+        <ion-col col-5>	<button ion-button block class="resume">Completed</button></ion-col>
+      </ion-row>
+    </div>
+    
+    
+    
+    <div class="addCourse" (click)="newCourse()">
+      <ion-row>
+        <ion-col col-2><ion-icon name="add-circle" class="addIcon"></ion-icon></ion-col>
+        <ion-col col-8><h4>Add a New Course</h4></ion-col>
+      </ion-row>
+      </div> -->
+
+    
+
+ 
+</ion-content>
+

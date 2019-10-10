@@ -1,0 +1,22 @@
+<ion-content >
+
+  
+  <div class="list">
+        <img src="assets/imgs/logo.png" alt="" class="logo">
+      <ion-input class="Litem" type="text"  placeholder="Email" [(ngModel)]="email"></ion-input>
+      <ion-input class="Litem" type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+      <ion-button expand="full" class="btn" (click)="Login()">Login</ion-button>
+      <div class="keep"><ion-checkbox  (ionChange)="datachanged($event)" ></ion-checkbox><label for="">keep me signed in</label>  </div>
+  </div>
+      <p>or</p>
+      <ion-button expand="full"  class="btn" (click)="loginWithFB()">Login With Facebook</ion-button>
+      <div class="keep" (click)="Signup()"><label for="">Create an account</label> </div>
+  
+     
+      <div class="forget" (click)="recover()"><label for="">Forget Password ? </label> </div>
+  
+     
+     
+
+
+</ion-content>

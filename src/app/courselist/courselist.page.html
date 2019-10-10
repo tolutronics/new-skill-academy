@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <div class="back" (click)="toCrystaldom()">
+          <ion-icon class="icon" name="arrow-round-forward"></ion-icon>
+      </div>
+    <ion-title>courselist</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-item *ngFor="let course of courses; let i = index">
+       
+           
+          <div  class="image-container" [style.background-image]= "'url(assets/imgs/courses/'+ course.image +'.png)'" >
+            <div class="course-title" >
+              <div class="element">
+                <!-- <ion-icon #checkbox checked="false" name="add-circle" ></ion-icon> -->
+                <ion-checkbox  (ionChange)="datachanged($event,course.title)"></ion-checkbox> 
+               <ion-label  class="title" [innerHTML]="course.title" justify-content-center padding></ion-label>
+              </div>
+                
+              <!-- <ion-icon padding ios="ios-add-circle-outline" md="md-add-circle"></ion-icon><span [innerHTML]="course.title"></span> -->
+            </div>
+          </div>
+  
+
+    </ion-item>
+
+  </div>
+
+</ion-content>

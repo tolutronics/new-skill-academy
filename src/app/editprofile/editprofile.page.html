@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+      <div class="back" (click)="back()">
+          <ion-icon class="icon" name="arrow-back"></ion-icon>
+      </div>
+    <ion-title>editprofile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-avatar style="height: 150px; width: 150px; margin: auto; margin-bottom: 20px;">
+
+        <img src="assets/imgs/pic.jpg" class="profile-pic" >
+    </ion-avatar>
+<!-- <p class="Editname"> -->
+<ion-item class="Edit">
+  <ion-icon name="person" slot="start"></ion-icon>
+<ion-input  [(ngModel)]="fname" value="{{firstname}}"></ion-input></ion-item>
+
+
+<ion-item class="Edit">
+  <ion-icon name="person" slot="start"></ion-icon>
+  <ion-input  [(ngModel)]="lname" value="{{lastname}}"></ion-input></ion-item>
+
+
+
+  <ion-item class="Edit">
+          <ion-icon name="person" slot="start"></ion-icon>
+    <ion-input  [(ngModel)]="user" value="{{username}}"></ion-input>
+    </ion-item>
+
+<!-- </p>
+
+<p class="Editmail">  -->
+<ion-item class="Edit">
+ <ion-icon name="mail" slot="start"></ion-icon>
+  <ion-input [(ngModel)]="mail"  value="{{email}}"></ion-input>
+</ion-item>
+
+<!-- </p> -->
+<!-- <p class="Editphone"> -->
+<ion-item class="Edit">
+<ion-icon name="call" slot="start"></ion-icon>
+  <ion-input  [(ngModel)]="num" value="{{number}}"></ion-input>
+</ion-item>
+
+<!-- </p> -->
+
+<ion-button block class="edit" (click)="saveEdit()">Save</ion-button>
+</ion-content>

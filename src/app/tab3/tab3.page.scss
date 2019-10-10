@@ -1,0 +1,37 @@
+
+
+ion-header ion-toolbar{
+    height: 50px;
+  }
+  
+  ion-title{
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 15px;
+    font-size: 17px;
+}
+.addBtn{
+    height: 50px;
+    width: 50px;
+    box-shadow: 0px 0px 3px 3px #888888;
+}
+.creator{
+    margin-top: 10px;
+    font-size: 65%;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.topic{
+    font-weight: bold;
+}
+
+.container{
+    width: 100%;
+    color: #ffffff;
+    background-color: #800080;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 6px 0 rgb(36, 35, 35);
+    position: relative;
+}

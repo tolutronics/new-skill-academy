@@ -1,0 +1,32 @@
+page-forum {
+    ion-title{
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 15px;
+        font-size: 17px;
+    }
+    .addBtn{
+        height: 50px;
+        width: 50px;
+        box-shadow: 0px 0px 3px 3px #888888;
+    }
+    .creator{
+        margin-top: 10px;
+        font-size: 65%;
+        color: #800080;
+        font-weight: bold;
+    }
+    .topic-list{
+
+        box-shadow: 0px 0px 1px 1px rgb(238, 233, 233); 
+        border-left: 10px solid #5a035a;
+
+    }
+
+    .topic{
+        font-weight: bold;
+    }
+}
+
+
+ 

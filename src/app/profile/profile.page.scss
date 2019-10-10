@@ -1,0 +1,150 @@
+
+page-profile{
+    ion-slides{
+        height: initial;
+    }
+
+    .SwipedTabs-indicatorSegment
+    {
+        -webkit-transition: 0.3s all;
+        -moz-transition:  0.3s all;
+        -o-transition:  0.3s all;
+        transition:  0.3s all;
+        transform-origin: top 0 left 0;
+        height: 1px;
+	    position: relative;
+	    top: -2px;
+	    background-color: white !important;
+    }
+    .SwipedTabs-tabs ion-segment-button
+    {
+    	border:none !important;
+    	color:#fff!important;
+    	background-color:#3B3442!important;
+    }
+     .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab
+    {
+        color:white !important;
+    }
+    .SwipedTabs-tabs
+    {
+    	border-bottom: solid 1px #e6e6e6  !important;
+    }
+
+}
+
+.pic{
+    background-color: #3B3442;
+    height: 50%;
+    width: 100%;
+    text-align: center;
+
+    
+    
+  }
+
+
+  .pic p {
+      color: #fff;
+      letter-spacing: 2px;
+      font-weight: normal;
+  }
+
+ .profile-pic{
+border-radius: 50%;
+height:100px;
+width:100px;
+margin-top:10px;
+
+ }
+
+ 
+
+ .edit{
+     background-color:#3B3442;
+     border: 1px solid #fff;
+     width: 40%;
+     margin: auto;
+     
+ }
+ 
+
+
+ .courses  .course{
+     background-color: transparent;
+   
+ width:100%;
+ height: 100%;
+
+ }
+ .h5{
+     background-color: #800080;
+     padding: 5px;
+     color: #fff;
+     text-align: left;
+     text-transform:  uppercase;
+ }
+ .courses .resume{
+     width: 100px;
+     height: 30px;
+     font-size: 10px;
+     margin-left:20px;
+     margin-top: 30px;
+
+ }
+
+ .courses .course-prog{
+     margin-bottom: 10px;
+ }
+ .course h5{
+     margin-top: -5px;
+     margin-left: -20px;
+     font-size:17px;
+ }
+
+ .course p{
+     font-size: 10px;
+     text-align:  left;
+ }
+
+ .course .course-pic{
+    // border-radius: 50%;
+     height:50px;
+     width:50px;
+    margin-top: 20px;
+     border:1px solid #000;
+     
+      }
+      .course-list{
+        margin-top: 10px;
+      }
+
+      .addCourse {
+          background-color: #DDA0DD;
+          height:80px;
+          font-weight: bolder;
+      }
+
+      .addCourse h4 {
+        
+        font-weight: bolder;
+    }
+
+      .addIcon{
+          width: 100px;
+          height: 100px;
+          margin-top:20px;
+      }
+
+ion-title{
+    font-weight: 800;
+        line-height: normal;
+        font-size: 18px;
+        text-align: center;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+    
+        
+        
+}
+

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "112463456312",
+    "firebase_url": "https://crytaldoms.firebaseio.com",
+    "project_id": "crytaldoms",
+    "storage_bucket": "crytaldoms.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112463456312:android:9933664516032824",
+        "android_client_info": {
+          "package_name": "io.crystaldom.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112463456312-4gc3cc57e5c5apoam0lemr0lcp4usjvm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV4pwiz3Q9ibEbX5xlQNFNUhs9DOgIpOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112463456312-4gc3cc57e5c5apoam0lemr0lcp4usjvm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "112463456312-crih0q26dhco0f4c1utfri4p4hv7583p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.crystaldom.starter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

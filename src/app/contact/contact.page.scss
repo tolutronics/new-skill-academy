@@ -1,0 +1,155 @@
+ion-title{
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 15px;
+    font-size: 17px;
+}
+
+
+
+.image{
+    text-align: center;
+}
+
+.emailadd {
+
+margin-top:30px;
+text-align:center;
+}
+.label{
+    margin-left: 10px;
+}
+.card{
+    background-color: #F8F8F9;
+    padding-bottom: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+.head{
+    border-bottom: 1px solid rgb(179, 176, 176);
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.cnum{
+    width: 100%;
+}
+.mycard{
+    font-size: 23px;
+    margin-top: 5px;
+}
+.cardnumber{
+    //padding: 10px;
+    width: 93%;
+    border-radius: 5px;
+    border:1px solid #f0f0f0;
+    height: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.expdate{
+    margin-bottom: 5px;
+}
+.grid{
+    padding: 10px;
+}
+
+.month{
+    height: 32px;
+    margin-left: 10px;
+    width: 122%;
+}
+
+.year{
+     
+    height: 32px;
+    margin-left: -31px;
+    margin-top: 0px;
+}
+.cal{
+    margin-top: -5px;
+}
+
+.inccv{
+    float: right;
+    width: 80%;
+    margin-top: -31px;
+
+
+}
+
+
+.stroke{
+    width: 60%;
+    margin-top: 0px;
+    height: 33px;
+}
+.date ,.ccv{
+    border-radius: 5px;
+    border:1px solid #f0f0f0;
+    height: 45px;
+}
+
+.amount {
+
+font-size:25px;
+color:green;
+text-align:center;
+font-weight:bold;
+}
+
+.pay-button{
+
+padding: 0 10px;
+text-align:center;
+font-size:6px;
+    button {
+    background:green;
+
+        
+    }
+
+}
+
+.whatspaystack {
+font-size:8px;
+text-align:center;
+
+}
+
+ion-icon {
+    font-size: 15px; //Preferred size here
+
+    padding-right:3px;
+}
+
+.secured{
+text-align:center;
+ font-size: 12px!important; 
+ padding:10px;
+
+
+}
+
+
+.login_img{
+
+padding-top:20px;
+
+}
+
+ion-item {
+border:1px solid #f0f0f0;
+
+}
+
+
+
+.input-area {
+background-color:#f8f8f8;
+padding: 5px 10px 1px 10px;
+}

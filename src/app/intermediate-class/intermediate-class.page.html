@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>intermediate-class</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <img src="assets/imgs/classes/beginnerClass.png"/>
+    <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" color="primary">
+        <ion-segment-button value="0">
+          <ion-label>OVERVIEW</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="1">
+         <ion-label>LESSONS</ion-label>
+        </ion-segment-button>
+    
+      </ion-segment>
+  
+      <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
+          <ion-slide>
+            <p class="overview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
+              minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+               commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+              sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+              <h4>WHAT YOU’LL GET</h4>
+              <ion-card class="get" style="background-color: #DDA0DD">
+                <ion-item >
+                  <ion-icon slot="start" name="camera"></ion-icon>
+                  <ion-label class="label">23 video Lessons</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-icon slot="start" name="camera"></ion-icon>
+                    <ion-label>Offline access to downloaded videos</ion-label>
+                </ion-item>
+                  <ion-item>
+                      <ion-icon slot="start" name="camera"></ion-icon>
+                      <ion-label>23 video Lessons</ion-label>
+                  </ion-item>
+              </ion-card>
+
+              <h4>HOW TO ENROLL</h4>
+
+            
+              <ion-item>
+               <ion-grid>
+                 <ion-row>
+                    <ion-label>
+                        <h5>ALL-ACCESS PASS</h5>
+                        <p class="one">Get unlimited access to all classes - from beginner to advanced.</p>
+                     </ion-label>
+                 </ion-row>
+                  <ion-row>
+                    <ion-col>
+                        <h6>N6, 500.00/YEAR</h6>
+                    </ion-col>
+                    <ion-col>
+                        <ion-button block class="resume" (click)="checkout(6500,'Making a dress 101', 'Full')">CHOOSE</ion-button>
+                    </ion-col>
+                    </ion-row>
+                    </ion-grid>
+                  </ion-item>
+
+
+                  <ion-item>
+                      <ion-grid>
+                        <ion-row>
+                           <ion-label>
+                               <h5>SINGLE CLASS</h5>
+                               <p class="one">Get unlimited access to the advanced class.</p>
+                            </ion-label>
+                        </ion-row>
+                         <ion-row>
+                           <ion-col>
+                               <h6>N3, 500.00/YEAR</h6>
+                           </ion-col>
+                           <ion-col>
+                               <ion-button block class="resume" (click)="checkout(3500,'Making a dress 101', 'Full')">CHOOSE</ion-button>
+                           </ion-col>
+                           </ion-row>
+                           </ion-grid>
+                         </ion-item>
+                         <ion-button color="primary" block (click)="member()" [disabled]="!bought">Join Membership Chat</ion-button>               
+            </ion-slide>
+        <ion-slide>
+            <ion-item style="background-color: red" *ngFor="let course of num">
+                <ion-grid>
+                    <ion-row>
+                        <ion-label class="text">
+                            <h3 class="lh" >{{course.title}}</h3>
+                            <p class="lp">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                          </ion-label>
+                    </ion-row>
+  
+                    <ion-row> <ion-button block class="buy" (click)="checkout(course.price, course.title,'Single')">BUY #{{course.price}}</ion-button></ion-row>
+                  
+                  </ion-grid>
+            </ion-item>
+            
+        </ion-slide>
+      
+      </ion-slides>
+</ion-content>
+

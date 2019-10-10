@@ -1,0 +1,101 @@
+
+ion-title{
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 15px;
+  font-size: 17px;
+}
+
+video::-webkit-media-controls-fullscreen-button { display: none; } 
+
+.top{
+    background-color: #800080;
+    height: 40%;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    margin: auto;
+  }
+
+  .top .p{
+      margin: auto;
+      margin-bottom: none;
+      padding: 10px;
+      width: 70%;
+      color: white;
+      font-size: 20px;
+      
+  }
+  .top .a{
+    margin: auto;
+    margin-top: none;
+    padding: 10px;
+    width: 90%;
+    font-size: 12px;
+    color: white;
+    
+  }
+
+  .top button{
+      width: 80%;
+      height: 30px;
+      border-radius: 5px;
+      margin:  auto;
+      font-size: 12px;
+      text-transform: none;
+  }
+
+  .class-prev{
+      margin-top: 30px;
+      color: #800080;
+      font-weight: bold;
+  }
+
+
+  #two{
+    margin-top: 30px; 
+  }
+
+  .prev1{
+    
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+   
+  }
+
+  .prev1 img{
+    margin: auto;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    
+    
+  }
+
+  .prev1 div{
+      background-color: #800080;
+      margin: auto;
+      width: 100%;
+      color: #ffffff;
+      height: 70px;
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+
+  }
+  .prev1 div h2{
+    letter-spacing: 0.02em;
+    font-size: 15px;
+    margin: auto;
+    padding: 5px;
+    font-weight: bold;
+    width: 98%;
+ }
+  .prev1 div h3{
+    letter-spacing: 0.02em;
+    font-size: 10px;
+    padding: 5px;
+    margin: auto;
+    width: 98%;
+    color: #D796D7;
+ }

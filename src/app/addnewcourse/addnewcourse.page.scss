@@ -1,0 +1,112 @@
+
+   ion-title{
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 15px;
+    font-size: 17px;
+}
+
+    ion-navbar.toolbar {
+        
+        min-height: 100px !important;
+      
+    }
+
+    b{
+        font-weight: 800;
+    }
+
+    h5{
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .image-container{
+        background-size: cover;
+        min-height: 107px;
+        width: 100%;
+    }
+
+    .toolbar-title {
+    text-overflow: unset;
+  
+    white-space: unset;
+    
+
+    }
+    
+    .course-title {
+        // margin-top: 3.8rem;
+        color: white;
+        width: 95%;
+        position: absolute;
+        // margin-left: auto;
+        // margin-top: 2em;
+        // margin-right: auto;
+        text-align: center;
+        align-content: center;
+        justify-content: center;
+        height: 95%;
+        
+      }
+    //   .course-title.active{
+    //       background-color: rgba(60, 2, 75, 0.5);
+    //   }
+
+      .element{
+          margin-top:  20px;
+          opacity: 1, !important ;
+      }
+      
+    
+      .toolbar-title toolbar-title-ios{
+          width: 100% !important; 
+          
+         
+
+      }
+   
+      .icon{
+        font-size: 30px;
+        margin-top: -5px;
+        color: white;
+        margin-right: 20px;
+    }
+  
+      .back{
+        color: #ffffff;
+        height: 30px;
+        float: right;
+        margin-top: 10px;
+        margin-left: 10px;
+        font-size: 20px;
+    }
+
+      .toolbar-ios ion-title{
+        
+        padding: 0 0px 1px;
+        left: 10px;
+        width: 80%;
+        position: absolute;
+        top: 10px;
+        
+      }
+    
+      input[type="checkbox"]{
+
+       width:30px;
+        height:30px;
+        background-color: red;
+        color: red;
+      }
+
+      .checkbox{
+        
+        
+      }
+
+
+
+    
+    
+

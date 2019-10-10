@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>classes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color=primary padding>
+
+  <div class="top">
+      <p class="p">Become a Pro Fashion Designer</p>
+      <p class="a">Get unlimited access to all 90+ classes from beginner to advance</p>
+    
+      <button ion-button color="primary"  block>Get All-access</button>
+  </div>
+  
+  <div>
+    <ion-card class="classImg">
+      <img src="assets/imgs/classes/beginnerClass.png"/>
+      <div class="card-title">Beginner Class</div>
+      <ion-card-content>
+        
+        <span no-padding>
+            This is the essential class for anyone looking to take that first giant step into the world
+            of fashion design!
+            All the basics would be covered in this hands-on class.
+        </span>
+      </ion-card-content>
+    </ion-card>
+    <div>
+        <button ion-button color="primary" block (click)="toBeginner()">Take the Class</button>
+    </div>
+
+    <ion-card class="classImg">
+        <img src="assets/imgs/classes/intermediateClass.png"/>
+        <div class="card-title">Intermadiate Class</div>
+        <ion-card-content>
+          
+          <span no-padding>
+              Beyond the basics, this class makes sure you have improved
+              flexibility when cutting in a variety of situations.
+          </span>
+        </ion-card-content>
+      </ion-card>
+      <div>
+          <button ion-button color="primary" block (click)="toIntermediate()">Take the Class</button>
+      </div>
+
+      <ion-card class="classImg">
+          <img src="assets/imgs/classes/advancedClass.png"/>
+          <div class="card-title"><b>Advanced Class</b></div>
+          <ion-card-content>
+            
+            <span no-padding>
+              Beyond the basics, this class makes sure you have improved
+              flexibility when cutting in a variety of situations.
+            </span>
+          </ion-card-content>
+        </ion-card>
+        <div>
+            <button ion-button color="primary" block (click)="toAdvanced()">Take the Class</button>
+        </div>
+  </div>
+
+</ion-content>

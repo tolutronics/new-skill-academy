@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Beginners Class Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+
+  <div id="chatmessages">
+      <div class="message"  *ngFor="let message of messages ; let i = index"  >
+        <div [class]="message.username == username ? 'inner messageRight':'inner messageLeft'"(press)="presentActionSheet(i)">
+          <img class="image" src="assets/imgs/pic.jpg" alt="">
+          <div class="username">{{message.username}} </div>
+          <div class="message" *ngIf="message.message">{{message.message}}</div>
+          <div class="message" *ngIf="message.photourl">
+              <img src="{{message.photourl}}" />
+          </div>
+          
+        <div class="time">{{message.time}}</div>
+        </div>
+         
+      </div>
+      <!-- <div class="message" *ngFor="let photo of photos">
+        <img src="{{photo.photourl}}" />
+        </div> -->
+        
+        
+  </div>
+    
+   
+  </ion-content>
+
+  <ion-footer no-border>
+<ion-row>
+    <div class="textdiv">
+ 
+      <ion-icon class="happy" name="happy"></ion-icon>
+        <textarea placeholder="Say something... " [(ngModel)]="message"  class="msd-elastic" ng-model="bar"></textarea>
+      
+      </div>
+      <div class="sendBtn"  (click)="sendMessage()"><ion-icon class="sendIcon" name="send"></ion-icon></div>
+    </ion-row>
+</ion-footer>
+
+
+  <!-- <ion-footer>
+    <ion-row> -->
+
+      <!-- <ion-col col-1 class="zero">
+        <button   class="smiley" (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" [emojiPickerDirection]="'top'"
+        (emojiPickerSelect)="handleSelection($event)">
+        <ion-icon name="happy"></ion-icon>
+      </button></ion-col> -->
+
+      <!-- <ion-col col-9 class="one"> <textarea  [(ngModel)]="message"  class="msd-elastic" ng-model="bar"></textarea></ion-col>
+      
+    <ion-col col-1 class="two">
+    <ion-fab right bottom>
+      <button ion-fab  class="attach"><ion-icon name="attach"></ion-icon></button>
+      <ion-fab-list side="top"  class="fablist">
+        <button ion-fab  (click)="AccessCamera()" class="camera"><ion-icon name="camera"></ion-icon></button>
+        <button ion-fab (click)="AccessGallery()" class="image"><ion-icon name="image"></ion-icon></button>
+      </ion-fab-list>
+    </ion-fab>
+    </ion-col>
+   <ion-col col-1 class="three"> <button ion-button icon-only  (click)="sendMessage()" class="sendBtn"> <ion-icon  name="send"></ion-icon></button></ion-col>
+    
+    </ion-row>
+       
+         
+     
+    </ion-footer>
+ -->

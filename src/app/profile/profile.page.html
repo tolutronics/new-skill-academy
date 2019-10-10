@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+  <div class="pic">
+
+
+<ion-row>
+
+</ion-row>
+      <img src="assets/imgs/pic.jpg" alt="" class="profile-pic" col=1>
+
+      <p>	{{username}} </p>
+      <p>{{email}}</p>
+        <!-- <p>{{mail}}</p>
+         -->
+
+      <button ion-button block class="edit" (click)="editProfile()">Edit Profile</button>
+     
+    </div>
+    
+
+
+    <ion-tabs>
+      <ion-tab-bar slot="top">
+        <ion-tab-button tab="schedule">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Schedule</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+
+  
+    
+    <!-- <div class="course">
+        <div class="h5">Your Courses</div>
+      <ion-list  >
+            <ion-item *ngFor="let course of key ">
+              <ion-label >{{dat[course]}}</ion-label>
+              
+            </ion-item>
+     
+          </ion-list></div>
+       
+          <div class="course-prog">
+            <div class="h5">Your Progress</div>
+      <ion-row *ngFor="let course of key ; let i=index">
+        <ion-col col-2> <img src="assets/imgs/pic.jpg" alt="" class="course-pic"></ion-col>
+        <ion-col col-5>	
+          <h6 style="margin-bottom:-10px;">{{dat[course]}}</h6>
+          <h6 style="font-size:10px;">Beginner Class</h6>
+        </ion-col>
+        <ion-col col-5>	<button ion-button block class="resume">Completed</button></ion-col>
+      </ion-row>
+    </div>
+    
+    
+    
+    <div class="addCourse" (click)="newCourse()">
+      <ion-row>
+        <ion-col col-2><ion-icon name="add-circle" class="addIcon"></ion-icon></ion-col>
+        <ion-col col-8><h4>Add a New Course</h4></ion-col>
+      </ion-row>
+      </div> -->
+
+    
+
+</ion-content>

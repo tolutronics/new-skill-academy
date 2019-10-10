@@ -1,0 +1,164 @@
+ion-title{
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 15px;
+    font-size: 17px;
+}
+
+    ion-slide {
+        height: initial; 
+    padding: 5px     }
+
+    .slide{
+        color: #800080;
+    }
+
+        .swiper-slide {
+          display: block;
+            -ms-flex-negative: 0;
+            /* flex-shrink: 0; */
+            -ms-flex-align: center;
+            /* align-items: center; */
+            -ms-flex-pack: center;
+       
+        }
+
+ 
+        .swiper-zoom-container {
+        display: block;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            text-align: center;
+        }
+
+
+
+.pic{
+    background-color: #3B3442;
+    height: 50%;
+    width: 100%;
+    text-align: center;
+
+    
+    
+  }
+
+
+  .pic p {
+      color: #fff;
+      letter-spacing: 2px;
+      font-weight: normal;
+  }
+
+ .profile-pic{
+border-radius: 50%;
+height:100px;
+width:100px;
+margin-top:10px;
+
+ }
+
+ 
+
+ .edit{
+     background-color:#3B3442;
+     border: 1px solid #fff;
+     width: 40%;
+     margin: auto;
+     
+ }
+ 
+ .courses{
+     background-color: rgb(88, 88, 90);
+
+ }
+
+ .courses  .course{
+     background-color: blue;
+ width:100%;
+
+ }
+ .h5{
+     background-color: #800080;
+     padding: 5px;
+     color: #fff;
+     text-align: left;
+     text-transform:  uppercase;
+ }
+ .courses .resume{
+     width: 100px;
+     height: 30px;
+     font-size: 10px;
+     margin-left:20px;
+     margin-top: 30px;
+
+ }
+
+ .courses .course-prog{
+     margin-top: 5px;
+     background-color: yellow;
+ }
+
+
+ .course .text p{
+     font-size: 10px;
+     text-align:  left;
+     margin-top: 5px;
+ }
+
+ .sc-ion-label-md-s p {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 14px;
+    line-height: 20px;
+    text-overflow: inherit;
+    overflow: inherit;
+}
+
+ .course .course-pic{
+    // border-radius: 50%;
+     height:40px;
+     width:40px;
+    margin-top: 20px;
+     border:1px solid #000;
+     
+      }
+      .course-list{
+        margin-top: 10px;
+      }
+
+      .addCourse {
+          background-color: red;
+          margin-top: 5px;
+          font-weight: bolder;
+      }
+
+      .addCourse h4 {
+        color: #800080;
+        font-weight: bolder;
+    }
+
+      .addIcon{
+        width: 40px;
+        height: 40px;
+        margin-top: 15px;
+        color: #800080;
+      }
+
+ion-title{
+    font-weight: 800;
+        line-height: normal;
+        font-size: 18px;
+        text-align: center;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        
+}
+

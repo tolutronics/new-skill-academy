@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>front</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color=primary>
+
+  <div class="top">
+    <p class="p">Become a Pro Fashion Designer</p>
+    <p class="a">Get unlimited access to all 90+ classes from beginner to advance</p>
+  
+    <button ion-button color="primary"  block>Get All-access</button>
+  </div>
+  
+  
+  <p class="class-prev">Class Previews</p>
+  
+    <div class="prev1">
+      <!-- <img src="assets/imgs/prev1.png" alt="" id="startImg" > -->
+  
+      <video #myVideo id="myVideo" width="100%"  controls controlsList="nodownload" poster="assets/imgs/placeholder.jpg">
+        <source [src]="'https://res.cloudinary.com/tolutronics/video/upload/v1552891679/sewinng.mp4'" type="video/mp4"/>
+      </video>
+  
+      <div color=primary>
+        <h2 (click)="playVideo()">Sketching your ideas</h2>
+        <h3>Lorem ipsum dolor sit amet consectetur adipiscing elit Phasellus at orci et neque mattis ullamcorper
+            at orci et neque mattis ullamcorper
+        </h3>
+      </div>
+    </div>
+  
+    <div class="prev1" id="two">
+        <!-- <img src="assets/imgs/prev2.png" alt="" id="startImg"> -->
+        <video #myVideo id="myVideo" width="100%"  controls controlsList="nodownload" poster="assets/imgs/placeholder.jpg">
+          <source [src]="'https://res.cloudinary.com/tolutronics/video/upload/v1552891737/sewing3.mp4'" type="video/mp4"/>
+        </video>
+        <div color=primary>
+          <h2>Introduction to cutting</h2>
+          <h3>Lorem ipsum dolor sit amet consectetur adipiscing elit Phasellus at orci et neque mattis ullamcorper
+              at orci et neque mattis ullamcorper
+          </h3>
+        </div>
+      </div>
+  
+  
+  
+  
+  
+  </ion-content>
+  

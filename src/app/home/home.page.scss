@@ -1,1 +1,47 @@
+.onboarding {
+    font-family: 'Raleway';
 
+    .toolbar-background {
+      background: #FCFCFC;
+      border-color: transparent;
+    }
+  
+    .slide-zoom {
+      height: 100%;
+    }
+  
+    .slide-title {
+      margin-top: 3.8rem;
+      color: #800080;
+
+    }
+  
+    .slide-image {
+      max-height: 50%;
+      max-width: 60%;
+      margin: 60px 0 0 0;
+      font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    }
+  
+    b {
+      font-weight: 800;
+    }
+  
+    p {
+      padding: 0 20px;
+      font-size: 12px;
+      line-height: normal;
+      font-weight: normal;
+      color: #DDA0DD;
+  
+      
+    }
+    
+
+    // .swiper-pagination {
+    //     bottom: 12% !important;
+    // }
+  
+  }

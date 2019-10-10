@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color=primary>
+    <ion-title>PAYMENT</ion-title>
+    <p slot="end" style="margin-right: 10px" (click)="cancel()">Cancel</p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card class="ion-padding"><p>You are about to Pay for the {{class}}' {{type}} Class Package</p>
+<p>Course Title: {{title}}</p>
+<p>Worth: {{amount}} naira</p>
+    
+    <angular4-paystack  [key]="public_key" [email]="email" [amount]="amount * 100" [ref]="random_id" [channels]="channels" (close)="paymentCancel()" (callback)="paymentDone($event)" [class]="'btn btn-primary'">
+            <ion-button ion-button tappable style="width:100%"><ion-icon name="card"></ion-icon> Pay Now</ion-button>
+    </angular4-paystack></ion-card>
+
+        
+   
+
+</ion-content>

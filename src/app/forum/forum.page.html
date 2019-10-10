@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>forum</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding> 
+
+  <div id="topic">
+   
+        <ion-list class="topic-list"  *ngFor="let topic of reversed; let i = index">
+          <ion-item> 
+            <ion-label class="topic" (click)="chatPage(topic)">{{topic.topic}}
+              <div class="creator">Created by: {{topic.username}}</div>
+            </ion-label>
+           
+          </ion-item>
+   
+        </ion-list>
+        
+    
+      <ion-fab right bottom>
+    <button class="addBtn" ion-fab mini (click)="addTopic()" color="primary"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>  
+        
+  </div>
+  
+  </ion-content>
+  
+  
+   
+  
+  
