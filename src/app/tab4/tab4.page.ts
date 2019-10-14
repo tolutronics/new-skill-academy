@@ -1,7 +1,7 @@
 
 //import { Facebook } from '@ionic-native/facebook/ngx';
 import { Component,ViewChild } from '@angular/core';
-import { NavController, IonSlides} from '@ionic/angular';
+import { NavController, IonSlides, AlertController} from '@ionic/angular';
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
@@ -37,7 +37,7 @@ userid;
   name : any;
   stat;
 
-  constructor(public ps:PassageService, private router:Router, private afs: AngularFirestore,private store:NativeStorage,  public navCtrl: NavController) {
+  constructor(private alertCtrl: AlertController,public ps:PassageService, private router:Router, private afs: AngularFirestore,private store:NativeStorage,  public navCtrl: NavController) {
    
 
     this.stat=this.ps.getDestn2();
@@ -56,6 +56,32 @@ userid;
    
   }
 
+
+  async Alert(msg, sub) {
+    const alert = await this.alertCtrl.create({
+    message: msg,
+    subHeader: sub,
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: () => {
+          this.router.navigate(['/tabs/tab4'])
+        }
+      },
+      {
+        text: 'Ok',
+        handler: () => {
+          firebase.auth().signOut().then(()=>{
+            this.router.navigate(['/login'])
+          })
+        }
+      }
+    ]
+   });
+    await alert.present();
+}
+
   
   async segmentChanged() {
     await this.slider.slideTo(this.segment);
@@ -64,7 +90,10 @@ userid;
   async slideChanged() {
     this.segment = await this.slider.getActiveIndex();
   }
+logout(){
+  this.Alert('Are you sure?', 'LOGOUT')
 
+}
 
 editProfile(){
    this.router.navigate(['/editprofile']);
