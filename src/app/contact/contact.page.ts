@@ -24,6 +24,7 @@ amount;
 title;
 class;
 type;
+ref;
 constructor( private afs: AngularFirestore,public router:Router, public navCtrl: NavController,public activatedRoute : ActivatedRoute) {
 
 
@@ -50,21 +51,52 @@ paymentDone(ref: any) {
       bought:'bought',
       
     }
-    if (this.class=="beginner") {
-      this.router.navigate(['/beginner-class'],
-    {queryParams:q}
-    );
+    if (this.class=="beginner" && this.type=="All-access") {
+      this.ref=this.afs.collection('Subscriptions').doc(`${firebase.auth().currentUser.uid}`)
+      this.ref.update({
+        Allaccess:'true',
+      });
+      this.router.navigate(['/beginner-class']);
     }
-    else if(this.class=="advance"){
-      this.router.navigate(['/advanced-class'],
-      {queryParams:q}
-      );
+    else if(this.class=="advance"&& this.type=="All-access"){
+      this.ref=this.afs.collection('Subscriptions').doc(`${firebase.auth().currentUser.uid}`)
+      this.ref.update({
+        Allaccess:'true',
+      });
+      this.router.navigate(['/advanced-class']);
     }
-    else if(this.class=="intermediate"){
-      this.router.navigate(['/intermediate-class'],
-      {queryParams:q}
-      );
+    else if(this.class=="intermediate"&& this.type=="All-access"){
+      this.ref=this.afs.collection('Subscriptions').doc(`${firebase.auth().currentUser.uid}`)
+      this.ref.update({
+        Allaccess:'true',
+      });
+      this.router.navigate(['/intermediate-class']);
     }
+
+    if (this.class=="beginner" && this.type=="Single") {
+      this.ref=this.afs.collection('Subscriptions').doc(`${firebase.auth().currentUser.uid}`)
+      this.ref.update({
+        BeginnerClass:'true',
+      });
+      this.router.navigate(['/beginner-class']);
+    }
+    else if(this.class=="advance"&& this.type=="Single"){
+      this.ref=this.afs.collection('Subscriptions').doc(`${firebase.auth().currentUser.uid}`)
+      this.ref.update({
+        IntermediateClass:'true',
+      });
+      this.router.navigate(['/advanced-class']);
+    }
+    else if(this.class=="intermediate"&& this.type=="Single"){
+      this.ref=this.afs.collection('Subscriptions').doc(`${firebase.auth().currentUser.uid}`)
+      this.ref.update({
+        AdvancedClass:'true',
+      });
+      this.router.navigate(['/intermediate-class']);
+    }
+
+ 
+    
     
   }
 }

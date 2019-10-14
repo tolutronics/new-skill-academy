@@ -3,8 +3,9 @@
   ion-title{
     text-align: center;
     text-transform: uppercase;
-    margin-top: 15px;
+    margin-top: 0px;
     font-size: 17px;
+    margin-right: 40px;
 }
 
 
@@ -36,15 +37,14 @@
       color: rgb(255, 255, 255);
   }
 
-
-    .back{
-      color: #ffffff;
-      height: 30px;
-      // float: left;
-     // margin-top: 10px;
-      margin-left: 10px;
-      font-size: 20px;
-  }
+  .back{
+    color: #ffffff;
+   
+    // float: left;
+   // margin-top: 10px;
+    margin-left: 10px;
+    font-size: 25px;
+}
 
     .profile-pic{
       border-radius: 50%;

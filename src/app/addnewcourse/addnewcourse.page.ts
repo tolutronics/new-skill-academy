@@ -16,7 +16,7 @@ export class AddnewcoursePage {
  passed={} as any;
  corse={} as any;
  persons={} as any;
- dat={} as any;
+ public dat:Array<string> = new Array(); 
  itemDoc;
  public cos:Array<string> = new Array(); 
  datlength;
@@ -117,7 +117,7 @@ export class AddnewcoursePage {
         var t =Object.keys(this.dat).length;
         console.log("my length"+ t)
         for (let y = 0; y < this.dat.length; y++) {
-          this.courses[y] = this.dat[y];
+       
           console.log(this.dat[y]);
         }
         })
@@ -155,12 +155,12 @@ back() {
     
    this.alert("Courses added successfully")
      
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/tabs/tab4']);
  
      this.ref=this.afs.collection('userProfile').doc(`${firebase.auth().currentUser.uid}`)
    
 
-    this.ref.update({Courses:this.cos});
+    this.ref.update({Courses:this.dat});
 
    
     //console.log(this.checkedItems);
@@ -168,7 +168,7 @@ back() {
   }
 
   toProfile(){
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/tabs/tab4']);
   }
 
   datachanged(e:any,g:any){
@@ -177,13 +177,15 @@ back() {
     console.log(g);
     if(e.detail.checked){
       this.cos.push(g);
-      console.log(this.cos);
+      this.dat.push(g)
+      console.log(this.dat);
     }else{
       let index: number = this.cos.indexOf(g);
       if (index > -1) {
-        this.cos.splice(index, 1);
+        this.cos.splice(index, -1);
+        this.dat.pop();
    }
-   console.log(this.cos);
+   console.log('finally',this.dat);
         }
 }
 

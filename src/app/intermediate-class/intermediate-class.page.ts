@@ -1,6 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, AlertController, IonSlides } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+import 'firebase/firestore';
+import * as firebase from 'firebase/app';
+
 @Component({
   selector: 'app-intermediate-class',
   templateUrl: './intermediate-class.page.html',
@@ -15,15 +19,23 @@ export class IntermediateClassPage {
   key=10;
  cos=10;
  bought="";
+ int;
+ allbought;
+ all;
 
-  constructor(public activatedRoute:ActivatedRoute, public navCtrl: NavController, private router: Router, private alertCtrl: AlertController,) {
+  constructor(public afs:AngularFirestore,public activatedRoute:ActivatedRoute, public navCtrl: NavController, private router: Router, private alertCtrl: AlertController,) {
   
-         
-    this.activatedRoute.queryParams.subscribe((res)=>{
+    this.afs.doc(`/Subscriptions/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
+     
+      this.int =res['IntermediateClass'];
+      this.all =res['Allaccess'];
+  });
 
-      this.bought = res['bought'];
-      
-    });
+  if (this.int=='true') {
+    this.bought='bought';
+  }else if(this.all=='true'){
+    this.allbought='bought;'
+  }
 
     this.num = [
       {title: 'How to cut a gown',
@@ -78,10 +90,13 @@ export class IntermediateClassPage {
     await alert.present();
 }
 
-
-  member(){
-    this.Alert('You are yet to pay for the Intermediate Class', 'info');
-    this.router.navigate(['/intermediatechat'])
+member(){
+  if (!this.bought) {
+    this.Alert('Please Subscribe to gain access', 'info');
+  }else{
+    this.router.navigate(['/advancechat'])
   }
+  
+}
 
 }

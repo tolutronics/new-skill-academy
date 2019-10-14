@@ -1,7 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, AlertController, IonSlides} from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { AngularFirestore } from '@angular/fire/firestore';
+import 'firebase/firestore';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-advanced-class',
@@ -18,14 +20,37 @@ export class AdvancedClassPage {
   key=10;
  cos=10;
  bought="";
-
-  constructor(public activatedRoute:ActivatedRoute,public navCtrl: NavController, private router: Router, private alertCtrl: AlertController,) {
-            
-    this.activatedRoute.queryParams.subscribe((res)=>{
-
-      this.bought = res['bought'];
+ adv;
+all;
+allbought;
+text="CHOOSE";
+text2="CHOOSE"
+act;
+disabled:boolean=false;
+buy="BUY #700"
+  constructor(private afs: AngularFirestore,public activatedRoute:ActivatedRoute,public navCtrl: NavController, private router: Router, private alertCtrl: AlertController,) {
+  this.afs.doc(`/Subscriptions/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
+     
+      this.adv =res['AdvancedClass'];
+      this.all =res['Allaccess'];
+      console.log('testing',this.all);
       
-    });
+      if (this.adv=='true') {
+        this.disabled=true;
+        this.act=true;
+        this.text='PAID';
+        this.text2='DISABLED'
+        this.buy="TAKE CLASS"
+      }else if(this.all=='true'){
+        this.text2='PAID';
+        this.text='DISABLED';
+        this.act=true;
+        this.disabled=true;
+        this.buy="TAKE CLASS"
+      }
+  });
+
+  
 
     this.num = [
       {title: 'How to cut a gown',
@@ -56,6 +81,22 @@ export class AdvancedClassPage {
     });
 
   }
+
+  checkout2(i,k,l){
+    var q ={
+      price:i,
+      title:k,
+      class:'advance',
+      type:l
+    }
+    if (this.buy=='TAKE CLASS') {
+      this.router.navigate(['/checkout'])
+    }else{
+    this.router.navigate(['/contact'], {
+      queryParams:q,
+    });
+  }
+  }
  
     ionViewDidLoad() {
      console.log('ionViewDidLoad BeginnerClassPage');
@@ -85,8 +126,13 @@ back() {
 
 
   member(){
-    this.Alert('You are yet to pay for the Advance Class', 'info');
-    this.router.navigate(['/advancechat'])
+    if (this.adv=='true' || this.all=='true') {
+      this.router.navigate(['/advancechat']);
+    }else{
+      this.Alert('Please Subscribe to gain access', 'info');
+    
+    }
+    
   }
 
 }

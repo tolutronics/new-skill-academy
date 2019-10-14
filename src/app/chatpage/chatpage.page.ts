@@ -7,7 +7,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { FirebaseApp } from '@angular/fire';
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-chatpage',
   templateUrl: './chatpage.page.html',
@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 })  
 export class ChatpagePage {
   username={} as any;
-  message=' ';
+  message;
   key:any;
   time:any;
   photoDisplay;
@@ -41,7 +41,7 @@ minutes;
   itemDoc;
   toggled: boolean = false;
 
-  constructor(public activatedRoute : ActivatedRoute,  public actionSheetCtrl: ActionSheetController, public storage: AngularFireStorage, public camera: Camera, public navCtrl: NavController, public firebaseNative:FirebaseApp, public db: AngularFireDatabase, private afs: AngularFirestore,public alertCtrl: AlertController) {
+  constructor(public router:Router, public activatedRoute : ActivatedRoute,  public actionSheetCtrl: ActionSheetController, public storage: AngularFireStorage, public camera: Camera, public navCtrl: NavController, public firebaseNative:FirebaseApp, public db: AngularFireDatabase, private afs: AngularFirestore,public alertCtrl: AlertController) {
  
    
    
@@ -138,7 +138,7 @@ getData(){
 
  
   sendMessage(){
-    if (this.message===' ') {
+    if (this.message===' ' || this.message==='Say something...') {
       
     }else{
     var today = new Date();
@@ -292,7 +292,9 @@ getData(){
 
   }
 
-  
+  back() {
+    this.router.navigate(['/tabs/tab3']);
+  }
 
   ionViewDidLoad() {
     

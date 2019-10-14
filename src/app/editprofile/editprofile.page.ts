@@ -3,11 +3,11 @@ import { NavController } from '@ionic/angular';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { AngularFirestore } from '@angular/fire//firestore';
 import { Router } from '@angular/router';
-import * as firebase from 'firebase/app';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireStorage} from '@angular/fire/storage';
 import 'firebase/firestore';
+import * as firebase from 'firebase/app';
 @Component({
   selector: 'app-editprofile', 
   templateUrl: './editprofile.page.html',
@@ -52,7 +52,7 @@ export class EditprofilePage {
       Email:this.mail,
       Photo:this.PhotoUrl
     })
-    this.router.navigate(['/tabs/tab4']);
+    this.router.navigateByUrl('/tabs/tab4');
   }
 
   back() {
@@ -89,7 +89,7 @@ export class EditprofilePage {
        for (var i=0; i<string_length; i++) {
          var rnum = Math.floor(Math.random() * chars.length);
          randomstring += chars.substring(rnum,rnum+1);
-       }
+       } 
   
        this.photourl = 'data:image/jpeg;base64,'+imageData;
       this.storage.ref('pictures/'+randomstring).putString(this.photourl,'data_url');
@@ -101,8 +101,8 @@ export class EditprofilePage {
         Number:this.num,
         Email:this.mail,
         Photo:this.photourl
-      })
-
+      });
+    
           }, (err) => {
   
        console.log(err);

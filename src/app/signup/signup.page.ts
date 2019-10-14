@@ -56,6 +56,19 @@ export class SignupPage {
                    
                    
                 });
+
+                firebase.firestore().doc(`/Subscriptions/${newUserCredential.user.uid}`).set({
+                  BeginnerClass:'false',
+                  IntermediateClass:'false',
+                  AdvancedClass:'false',
+                  Allaccess:'false',  
+                  Sbc:'',
+                  Sic:'',
+                  Sac:'',
+
+                  
+                  
+               });
        
       
         

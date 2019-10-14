@@ -7,7 +7,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { FirebaseApp } from '@angular/fire';
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PassageService } from '../passage.service';
 @Component({
   selector: 'app-intermediatechat',
@@ -16,7 +16,7 @@ import { PassageService } from '../passage.service';
 })
 export class IntermediatechatPage  {
   username={} as any;
-  message:any="";
+  message;
   key:any;
   time:any;
   public myData;
@@ -43,7 +43,7 @@ minutes;
   stat;
   userid;
 
-  constructor(public ps:PassageService, public activatedRoute : ActivatedRoute, public actionSheetCtrl: ActionSheetController, public storage: AngularFireStorage, public camera: Camera, public navCtrl: NavController, public firebaseNative:FirebaseApp, public db: AngularFireDatabase, private afs: AngularFirestore,public alertCtrl: AlertController) {
+  constructor(public router:Router,public ps:PassageService, public activatedRoute : ActivatedRoute, public actionSheetCtrl: ActionSheetController, public storage: AngularFireStorage, public camera: Camera, public navCtrl: NavController, public firebaseNative:FirebaseApp, public db: AngularFireDatabase, private afs: AngularFirestore,public alertCtrl: AlertController) {
  
    
    
@@ -141,6 +141,9 @@ getData(){
 
  
   sendMessage(){
+    if (this.message===' ' || this.message==='Say something...') {
+      
+    }else{
     var today = new Date();
     this.day=  today.getDay();
     this.hours = today.getHours();
@@ -167,7 +170,7 @@ getData(){
            console.log(error);
           
          })
- 
+        }
    
     // }else{
     //   //#
@@ -275,7 +278,9 @@ getData(){
   }
 
   
-
+  back() {
+    this.router.navigate(['/intermediate-class']);
+  }
   ionViewDidLoad() {
     
    

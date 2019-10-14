@@ -62,7 +62,7 @@
                         <h6>N7, 500.00/YEAR</h6>
                     </ion-col>
                     <ion-col>
-                        <ion-button block class="resume" (click)="checkout(7500,'Making a dress 101', 'Full')">CHOOSE</ion-button>
+                        <ion-button block class="resume" (click)="checkout(7500,'Making a dress 101', 'All-access')" [disabled]="act" >{{text2}}</ion-button>
                     </ion-col>
                     </ion-row>
                     </ion-grid>
@@ -82,13 +82,13 @@
                                <h6>N5, 000.00/YEAR</h6>
                            </ion-col>
                            <ion-col>
-                               <ion-button block class="resume" (click)="checkout(5000,'Making a dress 101', 'Full')">CHOOSE</ion-button>
+                               <ion-button block class="resume" (click)="checkout(5000,'Making a dress 101', 'Single')"[disabled]="disabled" >{{text}}</ion-button>
                            </ion-col>
                            </ion-row>
                            </ion-grid>
                          </ion-item>
                
-                         <ion-button color="primary" block (click)="member()" [disabled]="!bought">Join Membership Chat</ion-button>
+                         <ion-button color="primary" block (click)="member()" >Join Membership Chat</ion-button>
             </ion-slide>
         <ion-slide>
             <ion-item style="background-color: red" *ngFor="let course of num">
@@ -101,7 +101,7 @@
                           </ion-label>
                     </ion-row>
   
-                    <ion-row> <ion-button block class="buy" (click)="checkout(course.price, course.title, 'Single')">BUY #{{course.price}}</ion-button></ion-row>
+                    <ion-row> <ion-button block class="buy" (click)="checkout2(course.price, course.title, 'sacc')">{{buy}}</ion-button></ion-row>
                   
                   </ion-grid>
             </ion-item>

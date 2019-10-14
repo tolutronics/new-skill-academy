@@ -1,6 +1,9 @@
 import { Component,ViewChild } from '@angular/core';
 import { NavController, IonSlides, AlertController} from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+import 'firebase/firestore';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-beginner-class',
@@ -16,15 +19,36 @@ export class BeginnerClassPage {
   key=10;
  cos=10;
   bought="";
-  
+  disabled:boolean=false;
+  all;
+  beg;
+  allbought;
+  text="CHOOSE";
+  text2="CHOOSE"
+  act:boolean=false;;
+  buy="BUY #500"
  
-   constructor(public activatedRoute:ActivatedRoute, public navCtrl: NavController,private router: Router,  private alertCtrl: AlertController, ) {
+   constructor(public afs:AngularFirestore,public activatedRoute:ActivatedRoute, public navCtrl: NavController,private router: Router,  private alertCtrl: AlertController, ) {
      
-    this.activatedRoute.queryParams.subscribe((res)=>{
+    this.afs.doc(`/Subscriptions/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
+     
+      this.beg =res['BeginnerClass'];
+      this.all =res['Allaccess'];
+      if (this.beg=='true') {
+        this.disabled=true;
+        this.act=true;
+        this.text='PAID';
+        this.text2='DISABLED'
+        this.buy="TAKE CLASS"
+      }else if(this.all=='true'){
+        this.text2='PAID';
+        this.text='DISABLED';
+        this.act=true;
+        this.disabled=true;
+        this.buy="TAKE CLASS"
+      }
+  });
 
-      this.bought = res['bought'];
-      
-    });
 
     this.num = [
        {title: 'How to cut a gown',
@@ -51,10 +75,16 @@ export class BeginnerClassPage {
 }
 
 
-  member(){
-    this.Alert('You are yet to pay for the Beginner Class', 'info');
-    this.router.navigate(['/beginnerchat'])
+member(){
+  console.log(this.beg, this.all);
+  if (this.beg=='true' || this.all=='true') {
+    this.router.navigate(['/beginnerchat']);
+  }else{
+    this.Alert('Please Subscribe to gain access', 'info');
+  
   }
+  
+}
  
  
   back() {
@@ -72,6 +102,23 @@ export class BeginnerClassPage {
     this.router.navigate(['/contact'], {
       queryParams:q,
     });
+
+  }
+
+  checkout2(i,k,l){
+    var q ={
+      price:i,
+      title:k,
+      class:'beginner',
+      type:l
+    }
+    if (this.buy=='TAKE CLASS') {
+      this.router.navigate(['/checkout'])
+    }else{
+    this.router.navigate(['/contact'], {
+      queryParams:q,
+    });
+  }
 
   }
  
