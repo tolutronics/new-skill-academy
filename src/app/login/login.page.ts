@@ -52,22 +52,22 @@ userData: any;
                   resy.present();
                   this.fire.auth.signInWithEmailAndPassword(this.email, this.password)
                 .then(data => {
-                console.log(data);
                   console.log('Got data', this.fire.auth.currentUser);
 
                   if (this.fire.auth.currentUser.emailVerified) {
+                    if (this.ischecked ) {
+                      console.log('checked o')
+                      this.Device = this.device.uuid;
+                      this.store.setItem('myitem', { device: this.Device, token: firebase.auth().currentUser.getIdToken})
+                    .then(
+                      (res) => console.log('Stored item!', ),
+                      error => console.error('Error storing item', error)
+                    );
+                    }
 
                   this.afs.collection('userProfile').doc(`${this.fire.auth.currentUser.uid}`).valueChanges().subscribe(res => {
                     resy.onDidDismiss().then((dis) => {
-                      if (this.ischecked ) {
-                        console.log('checked o')
-                        this.Device = this.device.uuid;
-                        this.store.setItem('myitem', { device: this.Device, userid: firebase.auth().currentUser.uid})
-                      .then(
-                        (res) => console.log('Stored item!', ),
-                        error => console.error('Error storing item', error)
-                      );
-                      }
+                     
                   });
                     if (res['Courses']) {
                     console.log(res['Courses']);
@@ -90,7 +90,7 @@ userData: any;
 
                   resy.onDidDismiss().then((dis) => {
                     console.log(error)
-                  this.Alert('Invalid Email or Password', 'failed');
+                  this.Alert(error.message, error.code);
                 });
               });
               });

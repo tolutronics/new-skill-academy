@@ -15,7 +15,7 @@
         </ion-segment-button>
         <ion-segment-button value="1">
          <ion-label>LESSONS</ion-label>
-        </ion-segment-button>
+         </ion-segment-button>
     
       </ion-segment>
   
@@ -57,10 +57,10 @@
                  </ion-row>
                   <ion-row>
                     <ion-col>
-                        <h6>N6, 500.00/YEAR</h6>
+                        <h6>NGN {{all_access_price}}/YEAR</h6>
                     </ion-col>
                     <ion-col>
-                        <ion-button block class="resume" (click)="checkout(6500,'Making a dress 101', 'All-access')">CHOOSE</ion-button>
+                        <ion-button block class="resume" (click)="checkout(all_access_price,'Making a dress 101', 'All-access')"[disabled]="act">{{text2}}</ion-button>
                     </ion-col>
                     </ion-row>
                     </ion-grid>
@@ -77,10 +77,10 @@
                         </ion-row>
                          <ion-row>
                            <ion-col>
-                               <h6>N3, 500.00/YEAR</h6>
+                               <h6>NGN {{int_all_price}}/YEAR</h6>
                            </ion-col>
                            <ion-col>
-                               <ion-button block class="resume" (click)="checkout(3500,'Making a dress 101', 'Single')">CHOOSE</ion-button>
+                               <ion-button block class="resume" (click)="checkout(int_all_price,'Making a dress 101', 'Single')"[disabled]="disabled">{{text}}</ion-button>
                            </ion-col>
                            </ion-row>
                            </ion-grid>
@@ -98,7 +98,7 @@
                           </ion-label>
                     </ion-row>
   
-                    <ion-row> <ion-button block class="buy" (click)="checkout(course.price, course.title,'sicc')">BUY #{{course.price}}</ion-button></ion-row>
+                    <ion-row> <ion-button block class="buy" (click)="checkout2(int_each_price, course.title,'sicc')">{{int_each_price}}</ion-button></ion-row>
                   
                   </ion-grid>
             </ion-item>

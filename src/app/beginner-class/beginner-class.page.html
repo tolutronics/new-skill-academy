@@ -57,10 +57,10 @@
                  </ion-row>
                   <ion-row>
                     <ion-col>
-                        <h6>N5, 500.00/YEAR</h6>
+                        <h6>NGN {{all_access_price}}/YEAR</h6>
                     </ion-col>
                     <ion-col>
-                        <ion-button block class="resume" (click)="checkout(5500,'Making a dress 101', 'All-access')" [disabled]="act">{{text2}}</ion-button>
+                        <ion-button block class="resume" (click)="checkout(all_access_price,'Making a dress 101', 'All-access')" [disabled]="act">{{text2}}</ion-button>
                     </ion-col>
                     </ion-row>
                     </ion-grid>
@@ -77,10 +77,10 @@
                         </ion-row>
                          <ion-row>
                            <ion-col>
-                               <h6>N2, 200.00/YEAR</h6>
+                               <h6>NGN {{beg_all_price}}/YEAR</h6>
                            </ion-col>
                            <ion-col>
-                               <ion-button block class="resume" (click)="checkout(2200,'Making a dress 101', 'Single')" [disabled]="disabled" >{{text}}</ion-button>
+                               <ion-button block class="resume" (click)="checkout(beg_all_price,'Making a dress 101', 'Single')" [disabled]="disabled" >{{text}}</ion-button>
                            </ion-col>
                            </ion-row>
                            </ion-grid>
@@ -99,7 +99,7 @@
                         </ion-label>
                   </ion-row>
 
-                  <ion-row> <ion-button block class="buy" (click)="checkout2(course.price, course.title,'sbcc')">{{buy}}</ion-button></ion-row>
+                  <ion-row> <ion-button block class="buy" (click)="checkout2(beg_each_price, course.title,'sbcc')">{{beg_each_price}}</ion-button></ion-row>
                 
                 </ion-grid>
           </ion-item>

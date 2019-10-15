@@ -23,10 +23,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Rave, RavePayment, Misc } from 'rave-ionic4';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import * as firebase from 'firebase';
+import { AutoresizeDirective } from './autoresize.directive';
 firebase.initializeApp(environment.firebase);
 @NgModule({
   
-  declarations: [AppComponent],
+  declarations: [AppComponent, AutoresizeDirective],
   entryComponents: [],
   imports: [BrowserModule,  IonicModule.forRoot(), AppRoutingModule,FormsModule,AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),

@@ -26,10 +26,19 @@ allbought;
 text="CHOOSE";
 text2="CHOOSE"
 act;
+adv_all_price;
+all_access_price;
+adv_each_price;
 disabled:boolean=false;
 buy="BUY #700"
   constructor(private afs: AngularFirestore,public activatedRoute:ActivatedRoute,public navCtrl: NavController, private router: Router, private alertCtrl: AlertController,) {
-  this.afs.doc(`/Subscriptions/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
+  
+    this.afs.doc(`/Prices/AdvancedClass`).valueChanges().subscribe(res=>{
+      this.adv_all_price=res['all-advance'],
+      this.all_access_price = res['all-access'],
+      this.adv_each_price= 'NGN '+res['each-advance']
+    })
+    this.afs.doc(`/Subscriptions/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
      
       this.adv =res['AdvancedClass'];
       this.all =res['Allaccess'];
@@ -40,7 +49,7 @@ buy="BUY #700"
         this.act=true;
         this.text='PAID';
         this.text2='DISABLED'
-        this.buy="TAKE CLASS"
+        this.buy="TAKE CLASS" 
       }else if(this.all=='true'){
         this.text2='PAID';
         this.text='DISABLED';
@@ -89,7 +98,7 @@ buy="BUY #700"
       class:'advance',
       type:l
     }
-    if (this.buy=='TAKE CLASS') {
+    if (this.adv_each_price=='TAKE CLASS') {
       this.router.navigate(['/checkout'])
     }else{
     this.router.navigate(['/contact'], {

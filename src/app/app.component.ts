@@ -33,6 +33,7 @@ timePeriodToExit = 2000;
     public alertCtrl: AlertController,
     private device: Device,
     public router: Router,
+    private fire: AngularFireAuth,
     private ps: PassageService,
     private afs: AngularFirestore,
   ) {
@@ -44,13 +45,14 @@ timePeriodToExit = 2000;
       this.store.getItem('myitem')
       .then(
       data => {
-         this.userid  = data.userid,
+         this.token  = data.token,
          this.info = data.device;
          if (this.info === this.device.uuid) {
-          this.ps.setDestn(this.userid);
+          this.ps.setDestn(this.token);
           this.ps.setDestn2('keeped');
+          
           this.navController.navigateRoot(['tabs']);
-          this.afs.doc(`/Devices/${this.userid}`).set({
+          this.afs.doc(`/Devices/${this.userid}`).set({ 
             info: this.info
           });
 

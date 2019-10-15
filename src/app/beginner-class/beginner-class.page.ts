@@ -27,9 +27,16 @@ export class BeginnerClassPage {
   text2="CHOOSE"
   act:boolean=false;;
   buy="BUY #500"
+  beg_all_price;
+  all_access_price;
+  beg_each_price;
  
    constructor(public afs:AngularFirestore,public activatedRoute:ActivatedRoute, public navCtrl: NavController,private router: Router,  private alertCtrl: AlertController, ) {
-     
+    this.afs.doc(`/Prices/BeginnersClass`).valueChanges().subscribe(res=>{
+      this.beg_all_price=res['all-beginner'],
+      this.all_access_price = res['all-access'],
+      this.beg_each_price= 'NGN '+res['each-beginner']
+    })
     this.afs.doc(`/Subscriptions/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
      
       this.beg =res['BeginnerClass'];
@@ -39,13 +46,13 @@ export class BeginnerClassPage {
         this.act=true;
         this.text='PAID';
         this.text2='DISABLED'
-        this.buy="TAKE CLASS"
+        this.beg_each_price="TAKE CLASS"
       }else if(this.all=='true'){
         this.text2='PAID';
         this.text='DISABLED';
         this.act=true;
         this.disabled=true;
-        this.buy="TAKE CLASS"
+        this.beg_each_price="TAKE CLASS"
       }
   });
 
@@ -112,8 +119,10 @@ member(){
       class:'beginner',
       type:l
     }
-    if (this.buy=='TAKE CLASS') {
-      this.router.navigate(['/checkout'])
+    if (this.beg_each_price=='TAKE CLASS') {
+      this.router.navigate(['/checkout'],{
+        queryParams:q,
+      })
     }else{
     this.router.navigate(['/contact'], {
       queryParams:q,

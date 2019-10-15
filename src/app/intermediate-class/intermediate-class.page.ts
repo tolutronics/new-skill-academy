@@ -22,20 +22,42 @@ export class IntermediateClassPage {
  int;
  allbought;
  all;
+text="CHOOSE";
+text2="CHOOSE"
+act;
+buy="BUY #600"
+int_all_price;
+int_each_price;
+all_access_price;
+disabled:boolean=false;
 
   constructor(public afs:AngularFirestore,public activatedRoute:ActivatedRoute, public navCtrl: NavController, private router: Router, private alertCtrl: AlertController,) {
   
+    this.afs.doc(`/Prices/IntermediateClass`).valueChanges().subscribe(res=>{
+      this.int_all_price=res['all-intermediate'],
+      this.all_access_price = res['all-access'],
+      this.int_each_price= 'NGN '+res['each-intermediate']
+    })
     this.afs.doc(`/Subscriptions/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
      
       this.int =res['IntermediateClass'];
       this.all =res['Allaccess'];
+      console.log('testing',this.all);
+      
+      if (this.int=='true') {
+        this.disabled=true;
+        this.act=true;
+        this.text='PAID';
+        this.text2='DISABLED'
+        this.int_each_price="TAKE CLASS" 
+      }else if(this.all=='true'){
+        this.text2='PAID';
+        this.text='DISABLED';
+        this.act=true;
+        this.disabled=true;
+        this.int_each_price="TAKE CLASS"
+      }
   });
-
-  if (this.int=='true') {
-    this.bought='bought';
-  }else if(this.all=='true'){
-    this.allbought='bought;'
-  }
 
     this.num = [
       {title: 'How to cut a gown',
@@ -64,6 +86,22 @@ export class IntermediateClassPage {
     });
 
   }
+
+  checkout2(i,k,l){
+    var q ={
+      price:i,
+      title:k,
+      class:'intermediate',
+      type:l
+    }
+    if (this.int_each_price=='TAKE CLASS') {
+      this.router.navigate(['/checkout'])
+    }else{
+    this.router.navigate(['/contact'], {
+      queryParams:q,
+    });
+  }
+  }
  
     ionViewDidLoad() {
      console.log('ionViewDidLoad BeginnerClassPage');
@@ -91,12 +129,12 @@ export class IntermediateClassPage {
 }
 
 member(){
-  if (!this.bought) {
-    this.Alert('Please Subscribe to gain access', 'info');
+  if (this.int=='true' || this.all=='true') {
+    this.router.navigate(['/advancechat']);
   }else{
-    this.router.navigate(['/advancechat'])
-  }
+    this.Alert('Please Subscribe to gain access', 'info');
   
+  }
 }
 
 }

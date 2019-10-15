@@ -63,16 +63,18 @@ userid;
     subHeader: sub,
     buttons: [
       {
-        text: 'Cancel',
+        text: 'No',
         role: 'cancel',
         handler: () => {
           this.router.navigate(['/tabs/tab4'])
         }
       },
       {
-        text: 'Ok',
+        text: 'Yes',
         handler: () => {
           firebase.auth().signOut().then(()=>{
+            this.store.remove('device');
+            this.store.remove('userid');
             this.router.navigate(['/login'])
           })
         }
