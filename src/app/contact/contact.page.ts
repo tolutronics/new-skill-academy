@@ -24,7 +24,9 @@ amount;
 title;
 class;
 type;
+index;
 ref;
+public arr:Array<string> = new Array(); 
 constructor( private afs: AngularFirestore,public router:Router, public navCtrl: NavController,public activatedRoute : ActivatedRoute) {
 
 
@@ -33,13 +35,24 @@ constructor( private afs: AngularFirestore,public router:Router, public navCtrl:
       this.email =res['Email'];
   }
     );
+
+     this.afs.collection('Subscriptions').doc(`${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
+      this.arr =res['Sic'];
+      var t =Object.keys(this.arr).length;
+      console.log("my length"+ t)
+      for (let y = 0; y < this.arr.length; y++) {
+     
+        console.log(this.arr[y]);
+      }
+      })
   
   this.activatedRoute.queryParams.subscribe((res)=>{
 
     this.title = res['title'];
     this.amount =res['price'];
     this.class =res['class'];
-    this.type=res['type'];
+   console.log (this.type=res['type']);
+    this.index=res['index'];
   });
 }
 
@@ -94,7 +107,14 @@ paymentDone(ref: any) {
       });
       this.router.navigate(['/intermediate-class']);
     }
-
+    else if(this.class=="intermediate"&& this.type=="sicc"){
+      this.arr.push(this.index)
+      this.ref=this.afs.collection('Subscriptions').doc(`${firebase.auth().currentUser.uid}`)
+      this.ref.update({
+        Sic:this.arr,
+      });
+      this.router.navigate(['/intermediate-class']);
+    }
  
     
     

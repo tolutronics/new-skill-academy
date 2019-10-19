@@ -5,10 +5,16 @@ import { Injectable } from '@angular/core';
 })
 export class PassageService {
   private destn1: any;
+  private rem: any;
   private destn2: any;
   private destn3 = {} as any;
   private destn4 = {} as any;
   constructor() { }
+
+  public setRem(rem) {
+    this.rem = rem;
+   // this.destn2 = destn2;
+  }
   public setDestn(destn1) {
     this.destn1 = destn1;
    // this.destn2 = destn2;
@@ -31,6 +37,9 @@ export class PassageService {
 
   getDestn1() {
     return this.destn1;
+  }
+  getRem() {
+    return this.rem;
   }
 
   getDestn2() {

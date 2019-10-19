@@ -28,6 +28,7 @@ act;
 buy="BUY #600"
 int_all_price;
 int_each_price;
+int_each_price2;
 all_access_price;
 disabled:boolean=false;
 
@@ -36,6 +37,7 @@ disabled:boolean=false;
     this.afs.doc(`/Prices/IntermediateClass`).valueChanges().subscribe(res=>{
       this.int_all_price=res['all-intermediate'],
       this.all_access_price = res['all-access'],
+      this.int_each_price2= res['each-intermediate'],
       this.int_each_price= 'NGN '+res['each-intermediate']
     })
     this.afs.doc(`/Subscriptions/${firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
@@ -87,12 +89,13 @@ disabled:boolean=false;
 
   }
 
-  checkout2(i,k,l){
+  checkout2(i,k,l,m){
     var q ={
       price:i,
       title:k,
       class:'intermediate',
-      type:l
+      type:l,
+      index:m
     }
     if (this.int_each_price=='TAKE CLASS') {
       this.router.navigate(['/checkout'])

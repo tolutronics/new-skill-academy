@@ -40,7 +40,20 @@ minutes;
   item;
   itemDoc;
   toggled: boolean = false;
+  fusername="tolu";
+fmessages: any[]=[
 
+  {fusername:'tolu'},
+  {fusername:'yeni'},
+  {fusername:'bola'},
+  {fusername:'tolu'},
+  {fusername:'seun'},
+  {fusername:'tolu'},
+  {fusername:'tola'},
+  {fusername:'tolu'},
+  {fusername:'tolu'},
+  {fusername:'tolu'},
+];
   constructor(public router:Router, public activatedRoute : ActivatedRoute,  public actionSheetCtrl: ActionSheetController, public storage: AngularFireStorage, public camera: Camera, public navCtrl: NavController, public firebaseNative:FirebaseApp, public db: AngularFireDatabase, private afs: AngularFirestore,public alertCtrl: AlertController) {
  
    

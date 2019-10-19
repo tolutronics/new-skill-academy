@@ -8,7 +8,8 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
-import { FirebaseApp } from '@angular/fire';
+import { PassageService } from '../passage.service';
+
 
 
 @Component({
@@ -22,7 +23,7 @@ email: any;
 Device: any;
 password: any;
 userData: any;
-  constructor( public lc: LoadingController,  private fb:Facebook, private afs: AngularFirestore, private device: Device,
+  constructor(   private ps: PassageService, public lc: LoadingController,  private fb:Facebook, private afs: AngularFirestore, private device: Device,
                private db: AngularFireDatabase, private alertCtrl: AlertController, private fire: AngularFireAuth,
                public router: Router, private store: NativeStorage) { }
 
@@ -34,7 +35,7 @@ userData: any;
                });
                 await alert.present();
             }
-
+              
             datachanged(e) {
               this.ischecked = e.currentTarget.checked;
               console.log(e);
@@ -58,8 +59,14 @@ userData: any;
                     if (this.ischecked ) {
                       console.log('checked o')
                       this.Device = this.device.uuid;
-                      this.store.setItem('myitem', { device: this.Device, token: firebase.auth().currentUser.getIdToken})
-                    .then(
+                      console.log(this.Device)
+                      console.log(this.password)
+                      console.log(this.fire.auth.currentUser.email)
+                      this.ps.setRem('rem')
+                       this.store.setItem('myitem', { userid:this.fire.auth.currentUser.uid, device: this.Device, email: this.fire.auth.currentUser.email, pass: this.password})
+                        
+                      
+                       .then(
                       (res) => console.log('Stored item!', ),
                       error => console.error('Error storing item', error)
                     );
@@ -71,6 +78,7 @@ userData: any;
                   });
                     if (res['Courses']) {
                     console.log(res['Courses']);
+                   
                     this.router.navigate(['/tabs']);
                   } else {
                          this.router.navigate(['/courselist']);

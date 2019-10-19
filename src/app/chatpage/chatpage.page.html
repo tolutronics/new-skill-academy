@@ -9,7 +9,26 @@
  
 <ion-content padding>
 
-  <div id="chatmessages">
+    <div id="chatmessages" ngIf="!messages">
+        <div class="message"  *ngFor="let fmessage of fmessages ; let i = index"  >
+          <div [class]="fmessage.fusername == fusername ? 'inner messageRight':'inner messageLeft'"(press)="presentActionSheet(i)">
+            <!-- <img class="image" src="{{photoDisplay}}" alt=""> -->
+            <ion-skeleton-text class="username"></ion-skeleton-text> 
+            <ion-skeleton-text class="message"></ion-skeleton-text> 
+           
+            <ion-skeleton-text class="time"></ion-skeleton-text> 
+          </div>
+           
+        </div>
+        <!-- <div class="message" *ngFor="let photo of photos">
+          <img src="{{photo.photourl}}" />
+          </div> -->
+          
+          
+    </div>
+        
+
+  <div id="chatmessages" ngIf="messages">
       <div class="message"  *ngFor="let message of messages ; let i = index"  >
         <div [class]="message.username == username ? 'inner messageRight':'inner messageLeft'"(press)="presentActionSheet(i)">
           <!-- <img class="image" src="{{photoDisplay}}" alt=""> -->
@@ -27,8 +46,9 @@
         </div> -->
         
         
-  </div>
-    
+      </div>
+
+ 
    
   </ion-content>
 

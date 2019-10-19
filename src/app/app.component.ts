@@ -17,8 +17,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  info = '55';
-  userid: any;
+  info = '';
+  pass: any;
+  userid;
+  email;
   lastTimeBackPress = 0;
 timePeriodToExit = 2000;
 @ViewChildren(IonRouterOutlet) routerOutlets: QueryList < IonRouterOutlet > ;
@@ -33,7 +35,6 @@ timePeriodToExit = 2000;
     public alertCtrl: AlertController,
     private device: Device,
     public router: Router,
-    private fire: AngularFireAuth,
     private ps: PassageService,
     private afs: AngularFirestore,
   ) {
@@ -42,28 +43,38 @@ timePeriodToExit = 2000;
 
   initializeApp() {
     this.platform.ready().then(() => {
+          
+
+      this.statusBar.styleBlackTranslucent();
+      this.splashScreen.hide();
       this.store.getItem('myitem')
       .then(
       data => {
-         this.token  = data.token,
+        this.email = data.email,
+        this.userid=data.userid,
+         this.pass  = data.pass,
          this.info = data.device;
-         if (this.info === this.device.uuid) {
-          this.ps.setDestn(this.token);
-          this.ps.setDestn2('keeped');
-          
-          this.navController.navigateRoot(['tabs']);
-          this.afs.doc(`/Devices/${this.userid}`).set({ 
-            info: this.info
-          });
-
-          console.error('tabs');
+         
+         if (this.info != this.device.uuid) {
+           console.log('not equal')
+          this.navController.navigateRoot(['login']);
           this.statusBar.styleBlackTranslucent();
           this.splashScreen.hide();
+         
+      
 
          } else {
-              this.navController.navigateRoot(['login']);
-              this.statusBar.styleBlackTranslucent();
-              this.splashScreen.hide();
+          console.log('my info')
+          console.log(this.pass)
+         console.log(this.email)
+          this.ps.setDestn(this.email);
+          this.ps.setDestn2('keeped');
+          this.fire.auth.signInWithEmailAndPassword(this.email,this.pass).then(()=>{
+            this.navController.navigateRoot(['tabs/tab1'], { skipLocationChange: true });
+            this.afs.doc(`/Devices/${this.userid}`).set({ 
+              info: this.info
+            });
+          })
 
          }
     } ,

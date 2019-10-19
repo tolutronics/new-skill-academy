@@ -60,7 +60,7 @@
                         <h6>NGN {{all_access_price}}/YEAR</h6>
                     </ion-col>
                     <ion-col>
-                        <ion-button block class="resume" (click)="checkout(all_access_price,'Making a dress 101', 'All-access')"[disabled]="act">{{text2}}</ion-button>
+                        <ion-button block class="resume" (click)="checkout(all_access_price,'Making a dress 101', 'All-access',0)"[disabled]="act">{{text2}}</ion-button>
                     </ion-col>
                     </ion-row>
                     </ion-grid>
@@ -80,7 +80,7 @@
                                <h6>NGN {{int_all_price}}/YEAR</h6>
                            </ion-col>
                            <ion-col>
-                               <ion-button block class="resume" (click)="checkout(int_all_price,'Making a dress 101', 'Single')"[disabled]="disabled">{{text}}</ion-button>
+                               <ion-button block class="resume" (click)="checkout(int_all_price,'Making a dress 101', 'Single',1)"[disabled]="disabled">{{text}}</ion-button>
                            </ion-col>
                            </ion-row>
                            </ion-grid>
@@ -88,7 +88,7 @@
                          <ion-button color="primary" block (click)="member()">Join Membership Chat</ion-button>               
             </ion-slide>
         <ion-slide>
-            <ion-item style="background-color: red" *ngFor="let course of num">
+            <ion-item style="background-color: red" *ngFor="let course of num; let i = index ">
                 <ion-grid>
                     <ion-row>
                         <ion-label class="text">
@@ -98,7 +98,7 @@
                           </ion-label>
                     </ion-row>
   
-                    <ion-row> <ion-button block class="buy" (click)="checkout2(int_each_price, course.title,'sicc')">{{int_each_price}}</ion-button></ion-row>
+                    <ion-row> <ion-button block class="buy" (click)="checkout2(int_each_price2, course.title,'sicc',i)">{{int_each_price}}</ion-button></ion-row>
                   
                   </ion-grid>
             </ion-item>

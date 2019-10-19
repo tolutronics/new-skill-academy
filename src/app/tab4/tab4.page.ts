@@ -33,20 +33,14 @@ export class Tab4Page  {
    C_user:any;
    //    mail:any;
 displayCatName:string;
-userid;
+
   name : any;
   stat;
 
   constructor(private alertCtrl: AlertController,public ps:PassageService, private router:Router, private afs: AngularFirestore,private store:NativeStorage,  public navCtrl: NavController) {
    
 
-    this.stat=this.ps.getDestn2();
-    if (this.stat=='keeped') {
-      this.userid=this.ps.getDestn1();
-    }else{
-  this.userid = firebase.auth().currentUser.uid;}
-  
-    
+
 
       this.getData1();
       this.getData2();
@@ -73,8 +67,7 @@ userid;
         text: 'Yes',
         handler: () => {
           firebase.auth().signOut().then(()=>{
-            this.store.remove('device');
-            this.store.remove('userid');
+            this.store.clear();
             this.router.navigate(['/login'])
           })
         }
@@ -112,7 +105,7 @@ newCourse(){
     
 
 getData1(){
-  this.itemDoc = this.afs.doc(`/userProfile/${this.userid}`).valueChanges().subscribe(res=>{
+  this.itemDoc = this.afs.doc(`/userProfile/${ firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
     this.username =res['Username'];
     this.email =res['Email'];
     this.photourl= res['Photo'];
@@ -121,7 +114,7 @@ getData1(){
 }
 
 getData2(){
-  this.itemDoc = this.afs.collection('userProfile').doc(`${this.userid}`).valueChanges().subscribe(res=>{
+  this.itemDoc = this.afs.collection('userProfile').doc(`${ firebase.auth().currentUser.uid}`).valueChanges().subscribe(res=>{
     this.dat =res['Courses'];
     var t =Object.keys(this.dat).length;
     console.log("my length"+ t)
