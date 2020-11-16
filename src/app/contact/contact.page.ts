@@ -16,7 +16,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class ContactPage {
 
 public formPay : FormGroup;
-public public_key = 'pk_test_15902d8d7ebdff253d60cf017703fa9d1a52b6f9'; //Put your paystack Test or Live Key here
+public public_key = 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxx'; //Put your paystack Test or Live Key here
 public channels = ['card']; //Paystack Payment Methods
 public random_id = Math.floor(Date.now() / 1000); //Line to generate reference number
 email;
